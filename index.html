@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moodify — Your Mood, Your Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-icon">☁</div>
+      <div><b>Moodify</b><small>Your mood, your story</small></div>
+    </div>
+    <nav>
+      <button class="nav active" data-page="home">⌂ <span>Home</span></button>
+      <button class="nav" data-page="checkin">♡ <span>Mood Check-in</span></button>
+      <button class="nav" data-page="calendar">▦ <span>Mood Calendar</span></button>
+      <button class="nav" data-page="stats">⌁ <span>Statistics</span></button>
+      <button class="nav" data-page="journal">✎ <span>Journal</span></button>
+      <button class="nav" data-page="selfcare">✦ <span>Self-care</span></button>
+    </nav>
+    <div class="side-note">
+      <span>🌷</span>
+      <b>Small steps matter.</b>
+      <p>Hari ini nggak harus sempurna. Cukup jadi sedikit lebih baik.</p>
+    </div>
+    <button class="nav" id="themeBtn">◐ <span>Dark Mode</span></button>
+  </aside>
+
+  <main>
+    <header>
+      <button class="mobile-menu" id="menuBtn">☰</button>
+      <span>My space / <b id="pageTitle">Home</b></span>
+      <button class="icon-btn" id="topTheme">☼</button>
+    </header>
+
+    <div class="content">
+      <section class="page active" id="home">
+        <div class="hero">
+          <div>
+            <label>YOUR LITTLE MOOD SPACE ✨</label>
+            <h1>How are you<br><em>feeling today?</em></h1>
+            <p>Check in dengan dirimu, tulis ceritamu, dan lihat pola mood-mu dengan cara yang simple.</p>
+            <button class="primary" data-page="checkin">Check in my mood →</button>
+          </div>
+          <div class="hero-art">
+            <div class="sun">☀️</div>
+            <div class="cloud cloud1">☁️</div>
+            <div class="cloud cloud2">☁️</div>
+            <div class="flower">🌷</div>
+            <div class="heart">♡</div>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <div><label>TODAY</label><h2>Today's mood</h2></div>
+          <span class="date-pill" id="todayDate"></span>
+        </div>
+
+        <div class="today-card card">
+          <div class="big-mood" id="homeMood">—</div>
+          <div class="today-info">
+            <label>CURRENT MOOD</label>
+            <h2 id="homeMoodName">Not checked in yet</h2>
+            <p id="homeMoodText">Yuk pilih mood kamu hari ini.</p>
+          </div>
+          <button class="outline" data-page="checkin">Update mood</button>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <div class="card-head"><div><label>THIS WEEK</label><h3>Mood snapshot</h3></div><button class="link" data-page="stats">See stats →</button></div>
+            <div class="week-moods" id="weekMoods"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><div><label>DAILY NOTE</label><h3>Little reminder</h3></div><span>💌</span></div>
+            <div class="quote" id="quote"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="checkin">
+        <div class="page-head">
+          <div><label>TAKE A MOMENT</label><h1>Mood Check-in ♡</h1><p>Nggak perlu mikir terlalu lama. Pilih yang paling menggambarkan kamu sekarang.</p></div>
+        </div>
+        <div class="card check-card">
+          <h2>How are you feeling?</h2>
+          <div class="mood-grid" id="moodGrid"></div>
+          <div class="field">
+            <label>MOOD INTENSITY</label>
+            <input type="range" id="intensity" min="1" max="5" value="3">
+            <div class="range-labels"><span>Low</span><b id="intensityValue">3 / 5</b><span>High</span></div>
+          </div>
+          <div class="field">
+            <label>WHAT'S ON YOUR MIND? <small>(optional)</small></label>
+            <textarea id="checkNote" placeholder="Tulis sedikit tentang hari kamu..."></textarea>
+          </div>
+          <button class="primary wide" id="saveMood">Save today's mood ✨</button>
+        </div>
+      </section>
+
+      <section class="page" id="calendar">
+        <div class="page-head"><div><label>YOUR MOOD HISTORY</label><h1>Mood Calendar 📅</h1><p>Lihat perjalanan mood kamu dari hari ke hari.</p></div></div>
+        <div class="card">
+          <div class="calendar-head"><button class="outline" id="prevMonth">←</button><h2 id="monthName"></h2><button class="outline" id="nextMonth">→</button></div>
+          <div class="calendar-week"><b>Sun</b><b>Mon</b><b>Tue</b><b>Wed</b><b>Thu</b><b>Fri</b><b>Sat</b></div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+        <div class="legend" id="legend"></div>
+      </section>
+
+      <section class="page" id="stats">
+        <div class="page-head"><div><label>UNDERSTAND YOUR PATTERN</label><h1>Mood Statistics 📊</h1><p>Data sederhana untuk membantu kamu melihat kebiasaan mood.</p></div></div>
+        <div class="stats-top">
+          <div class="card stat-main"><label>DOMINANT MOOD</label><div class="stat-emoji" id="dominantEmoji">—</div><h2 id="dominantName">No data yet</h2><p id="dominantText">Mulai check-in untuk melihat statistik.</p></div>
+          <div class="card"><label>CHECK-INS</label><h2 class="stat-number" id="checkinsCount">0</h2><p>Total mood yang tersimpan</p></div>
+          <div class="card"><label>AVERAGE INTENSITY</label><h2 class="stat-number" id="avgIntensity">0/5</h2><p>Dari seluruh check-in</p></div>
+        </div>
+        <div class="card chart-card"><div class="card-head"><div><label>MOOD FREQUENCY</label><h3>Your mood mix</h3></div></div><div id="moodBars"></div></div>
+      </section>
+
+      <section class="page" id="journal">
+        <div class="page-head"><div><label>YOUR STORIES</label><h1>Mood Journal 📖</h1><p>Simpan cerita kecil yang ingin kamu ingat.</p></div><button class="primary" id="newJournal">+ New Entry</button></div>
+        <div id="journalGrid" class="journal-grid"></div>
+      </section>
+
+      <section class="page" id="selfcare">
+        <div class="page-head"><div><label>TAKE CARE OF YOURSELF</label><h1>Self-care ✦</h1><p>Pilih aktivitas ringan sesuai kebutuhanmu.</p></div></div>
+        <div class="selfcare-grid" id="selfcareGrid"></div>
+        <div class="card gentle"><b>🌱 Remember</b><p>Self-care bukan berarti harus melakukan semuanya. Pilih satu hal kecil yang terasa nyaman untukmu hari ini.</p></div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="close" id="closeModal">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
