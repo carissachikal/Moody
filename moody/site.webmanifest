@@ -1,0 +1,18 @@
+{
+  "name": "Moodify — Your Mood, Your Story",
+  "short_name": "Moodify",
+  "description": "A gentle mood tracker and journal. Check in with yourself, write your story, and see your mood patterns.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fbf9fd",
+  "theme_color": "#7958db",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

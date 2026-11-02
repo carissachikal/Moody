@@ -1,0 +1,25 @@
+{
+  "entries": [],
+  "journal": [
+    {
+      "title": "A tiny good moment",
+      "date": "Example",
+      "icon": "🌷",
+      "text": "Hari ini aku menyadari bahwa momen kecil juga bisa membuat hari terasa lebih baik."
+    },
+    {
+      "title": "A quiet afternoon",
+      "date": "Example",
+      "icon": "☁️",
+      "text": "Simpan cerita sederhana di sini. Kamu bisa menulis apa pun yang ingin kamu ingat."
+    }
+  ],
+  "quotes": [
+    "You don't have to have it all figured out today.",
+    "Small progress is still progress.",
+    "Take it one moment at a time.",
+    "Your feelings are worth listening to.",
+    "A soft day is still a good day."
+  ],
+  "selfcare": []
+}
